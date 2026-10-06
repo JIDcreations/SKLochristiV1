@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SK Lochristi | Voetbalclub in Lochristi</title>
-  <meta name="description" content="SK Lochristi, voetbalclub in Lochristi. Eerste ploeg in 3de provinciale C, jeugdwerking van U6 tot U21. Kalender, evenementen, webshop en clubnieuws.">
+  <title>Lid worden | SK Lochristi</title>
+  <meta name="description" content="Voetballen bij SK Lochristi: vraag een teamtraining aan, train mee en word lid. Jeugd van U6 tot U21 en seniors.">
   <link rel="icon" href="assets/img/logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,12 +25,12 @@
       </button>
       <nav class="site-nav" id="site-nav" aria-label="Hoofdmenu">
         <ul>
-          <li class="site-nav__group">
+          <li class="site-nav__group is-current">
             <button class="site-nav__trigger" type="button" aria-expanded="false" aria-controls="nav-club">Club <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button>
             <ul class="site-nav__sub" id="nav-club">
               <li><a href="over-ons.html">Over de club</a></li>
               <li><a href="ploegen.html">Ploegen</a></li>
-              <li><a href="lid-worden.html">Lid worden</a></li>
+              <li><a href="lid-worden.html" aria-current="page">Lid worden</a></li>
               <li><a href="evenementen.html">Evenementen</a></li>
               <li><a href="documenten.html">Documenten</a></li>
             </ul>
@@ -46,112 +46,50 @@
 
   <main id="inhoud">
 
-    <!-- Hero: de middenstip -->
-    <section class="hero" aria-labelledby="hero-title">
-      <img class="hero__photo" src="assets/img/news/DSC_9731.jpg" alt="" fetchpriority="high">
-      <div class="hero__inner">
-        <h1 class="hero__title" id="hero-title">
-          <span class="hero__crest">
-            <svg class="hero__ring" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="49.4" pathLength="100" transform="rotate(-90 50 50)"/></svg>
-            <img src="assets/img/crest.png" alt="Clubwapen SK Lochristi" width="509" height="640">
-          </span>
-          <span class="hero__name">SK Lochristi</span>
-        </h1>
-        <div class="hero__meta">
-          <div>
-            <strong>3de provinciale C</strong>
-            <small>Eerste ploeg, seizoen 2026–2027</small>
-          </div>
-          <div>
-            <strong>Stamnummer 5617</strong>
-            <small>Complexen Bosdreef en Beerveldsebaan</small>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Wedstrijdinfo: hoogste opzoekfrequentie -->
-    <section class="shortcuts" aria-labelledby="shortcuts-title">
+    <section class="page-hero" aria-labelledby="page-title">
+      <svg class="page-hero__lines" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="150"/><line x1="200" y1="-200" x2="200" y2="600"/><circle cx="200" cy="200" r="4" style="fill:currentColor"/></svg>
       <div class="wrap">
-        <h2 id="shortcuts-title" class="visually-hidden">Wedstrijdinfo</h2>
-        <nav class="shortcuts__bar" aria-label="Wedstrijdinfo">
-          <a class="shortcut" data-link="kalender" href="https://www.rbfa.be/nl/club/1969/komende-wedstrijden" target="_blank" rel="noopener">
-            <span class="shortcut__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/><path d="M8 14h2M14 14h2M8 17.5h2"/></svg>
-            </span>
-            <span class="shortcut__title">Kalender</span>
-            <span class="shortcut__desc">Wedstrijden van alle ploegen</span>
-            <svg class="shortcut__ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            <span class="visually-hidden">(opent in een nieuw venster)</span>
-          </a>
-          <a class="shortcut" href="evenementen.html">
-            <span class="shortcut__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg>
-            </span>
-            <span class="shortcut__title">Evenementen en activiteiten</span>
-            <span class="shortcut__desc">Mosselsouper, tornooien en clubfeesten</span>
-          </a>
-          <a class="shortcut" href="https://sklochristi.shop4clubs.eu" target="_blank" rel="noopener">
-            <span class="shortcut__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16l-1.2 12.1a2 2 0 0 1-2 1.9H7.2a2 2 0 0 1-2-1.9z"/><path d="M9 10V6a3 3 0 0 1 6 0v4"/></svg>
-            </span>
-            <span class="shortcut__title">Webshop</span>
-            <span class="shortcut__desc">Clubkledij en supportersartikelen</span>
-            <svg class="shortcut__ext" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>
-            <span class="visually-hidden">(opent in een nieuw venster)</span>
-          </a>
-        </nav>
+        <h1 id="page-title">Lid worden</h1>
+        <p>Wil je bij SK Lochristi voetballen? Kom eerst een teamtraining meevolgen. Zo leer je de ploeg en de trainer kennen voor je beslist.</p>
       </div>
     </section>
 
-    <!-- Laatste nieuws -->
-    <section class="section" aria-labelledby="news-title">
+    <!-- Lid worden -->
+    <section class="section" id="lid-worden" aria-labelledby="lid-title">
       <div class="wrap">
         <div class="section-head">
           <div>
-            <h2 id="news-title">Laatste nieuws</h2>
+            <h2 id="lid-title">In vier stappen</h2>
           </div>
-          <a class="btn btn--ghost" href="nieuws.html">Alle nieuws</a>
+          <a class="btn btn--solid" href="https://sklochristi.be/club/jeugd/hoe-aansluiten/">Teamtraining aanvragen</a>
         </div>
-        <div class="news-lead" data-latest-news>
-          <noscript><p>Lees het laatste clubnieuws op de <a class="text-link" href="nieuws.html">nieuwspagina</a>.</p></noscript>
-        </div>
-      </div>
-    </section>
-
-    <!-- Over de club in het kort -->
-    <section class="section section--line" aria-labelledby="club-title">
-      <div class="wrap split">
-        <figure class="split__media" style="margin:0">
-          <img src="assets/img/club/groep-2.jpg" alt="Een jeugdploeg van SK Lochristi in blauw-wit tenue op het veld" loading="lazy" width="1024" height="683">
-          <figcaption>Onze jongste spelers, met de serres van Lochristi op de achtergrond.</figcaption>
-        </figure>
-        <div>
-          <h2 id="club-title">Een eerste ploeg uit eigen opleiding</h2>
-          <p class="lede">SK Lochristi bouwt aan een eerste ploeg met spelers uit de eigen jeugd, van rond de kerktorens van groot Lochristi.</p>
-          <p>Eén bestuur zorgt voor alle ploegen, van de U6 tot de eerste ploeg. Beloftevolle jeugdspelers trainen mee bij de A-beloften en het eerste elftal, zodat de stap naar de seniors klein blijft.</p>
-          <div class="actions">
-            <a class="btn btn--solid" href="over-ons.html">Leer de club kennen</a>
-            <a class="text-link" href="lid-worden.html">Lid worden</a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sponsors -->
-    <section class="section" aria-labelledby="sponsors-title">
-      <div class="wrap">
-        <div class="section-head">
+        <ol class="steps steps--light">
+          <li><strong>Vraag een teamtraining aan</strong><p>Vul het aanvraagformulier voor een teamtraining in.</p></li>
+          <li><strong>We nemen contact op</strong><p>De coördinator van jouw leeftijdscategorie spreekt een moment af.</p></li>
+          <li><strong>Train mee</strong><p>Je traint mee en leert de trainer en je ploegmaats kennen.</p></li>
+          <li><strong>Word lid</strong><p>Na betaling van het lidgeld ben je verzekerd via Voetbal Vlaanderen en krijg je vanaf U7 een kledijpakket.</p></li>
+        </ol>
+        <div class="contact-card contact-card--light">
+          <span class="avatar" aria-hidden="true">WQ</span>
           <div>
-            <h2 id="sponsors-title">Langs de lijn</h2>
-            <p>Deze bedrijven steunen SK Lochristi. Zonder hen geen truitjes, geen verlichting en geen jeugdwerking.</p>
+            <strong>Wesley Quatacker</strong>
+            <span>Assistent TVJO, aanspreekpunt voor nieuwe jeugdspelers</span>
           </div>
+          <a class="btn btn--solid" href="mailto:avjo@sklochristi.be">Mail Wesley</a>
         </div>
-        <ul class="boards" data-sponsors="11" data-sponsor-cta aria-label="Sponsors"></ul>
-        <div class="sponsor-strip">
-          <p>Samen met onze Business Friends: een 25-tal bedrijven uit Lochristi en omstreken.</p>
-          <a class="text-link" href="sponsor-worden.html">Alle sponsors bekijken</a>
-        </div>
+        <p style="margin:1.25rem 0 0;color:var(--color-muted)">Seniorspeler? Mail naar <a class="text-link" href="mailto:info@sklochristi.be">info@sklochristi.be</a>.</p>
+      </div>
+    </section>
+
+    <section class="section section--line" aria-labelledby="lid-more">
+      <div class="wrap">
+        <h2 id="lid-more" class="visually-hidden">Meer info</h2>
+        <ul class="link-cards">
+          <li><a href="ploegen.html"><strong>Ploegen</strong><span>Welke ploeg past bij jouw leeftijd?</span></a></li>
+          <li><a href="contact.html#terreinen"><strong>Terreinen</strong><span>Waar trainen en spelen we?</span></a></li>
+          <li><a href="documenten.html#formulieren"><strong>Formulieren</strong><span>Sportongeval en tussenkomst ziekenfonds</span></a></li>
+          <li><a href="documenten.html#charters"><strong>Charters</strong><span>Wat we verwachten van spelers en ouders</span></a></li>
+        </ul>
       </div>
     </section>
 

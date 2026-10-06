@@ -5,9 +5,10 @@
 window.SKL = window.SKL || {};
 
 SKL.links = {
-  kalender: "https://www.socceronline.be/pub/calendar/index.aspx?c=05617",
+  kalender: "https://www.rbfa.be/nl/club/1969/komende-wedstrijden",
   afgelastingen: "https://static.belgianfootball.be/project/publiek/remises/nl/afgelastingen.htm?m=15d",
-  aanduidingen: "https://static.belgianfootball.be/project/publiek/aanduidingenclub/nl/aanduiding_05617.htm"
+  aanduidingen: "https://static.belgianfootball.be/project/publiek/aanduidingenclub/nl/aanduiding_05617.htm",
+  webshop: "https://sklochristi.shop4clubs.eu"
 };
 
 SKL.news = [
@@ -242,6 +243,17 @@ SKL.news = [
       "assets/img/club/DSC_1422.jpg"
     ]
   }
+];
+
+/* Evenementen en activiteiten
+   Gebaseerd op de vaste clubtradities (sklochristi.be, categorie activiteiten).
+   Alle items hebben example: true: de echte data en locaties zijn nog niet
+   bevestigd. Activiteiten in het verleden verdwijnen vanzelf uit de lijst. */
+SKL.events = [
+  { "date": "2026-11-14", "title": "Mosselsouper", "time": "19u", "place": "Cultuurzaal complex Uyttenhove", "example": true },
+  { "date": "2027-04-10", "title": "Duiveltjestornooi", "time": "9u", "place": "Complex Beerveldsebaan", "example": true },
+  { "date": "2027-05-21", "title": "Festival van de Gouden Schoen", "time": "18u30", "place": "Locatie volgt", "example": true },
+  { "date": "2027-08-14", "title": "Willy Sergeant Cup", "time": "Bbq vanaf 19u30", "place": "Locatie volgt", "example": true }
 ];
 
 SKL.sponsors = [

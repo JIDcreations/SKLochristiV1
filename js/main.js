@@ -70,6 +70,28 @@
     });
   }
 
+  /* ---------- Club dropdown ---------- */
+  var group = $(".site-nav__group");
+  var trigger = group && $(".site-nav__trigger", group);
+  if (trigger) {
+    var setOpen = function (open) {
+      group.classList.toggle("is-open", open);
+      trigger.setAttribute("aria-expanded", String(open));
+    };
+    trigger.addEventListener("click", function () { setOpen(!group.classList.contains("is-open")); });
+    $all(".site-nav__sub a", group).forEach(function (a) {
+      a.addEventListener("click", function () {
+        setOpen(false);
+        if (nav) { nav.classList.remove("is-open"); toggle.setAttribute("aria-expanded", "false"); }
+      });
+    });
+    document.addEventListener("click", function (e) { if (!group.contains(e.target)) setOpen(false); });
+    group.addEventListener("focusout", function (e) { if (!group.contains(e.relatedTarget)) setOpen(false); });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape" && group.classList.contains("is-open")) { setOpen(false); trigger.focus(); }
+    });
+  }
+
   /* ---------- External match links ---------- */
   $all("[data-link]").forEach(function (a) {
     var href = SKL.links && SKL.links[a.getAttribute("data-link")];
@@ -92,7 +114,7 @@
       return '<li class="board"><img src="' + esc(s.logo) + '" alt="' + esc(s.name) + '" loading="lazy"></li>';
     }).join("");
     if (list.hasAttribute("data-sponsor-cta")) {
-      html += '<li class="board board--cta"><a href="over-ons.html#sponsors" style="display:grid;place-items:center;text-decoration:none;color:inherit;padding:.75rem">' +
+      html += '<li class="board board--cta"><a href="sponsor-worden.html" style="display:grid;place-items:center;text-decoration:none;color:inherit;padding:.75rem">' +
         "<span>Jouw bord hier?<small>Word sponsor</small></span></a></li>";
     }
     list.innerHTML = html;
@@ -165,6 +187,28 @@
 
     var moreList = $("[data-more-news]");
     if (moreList) moreList.innerHTML = more.map(function (n) { return storyCard(n); }).join("");
+  }
+
+  /* ---------- Events: simple list, upcoming only ---------- */
+  var eventsBox = $("[data-events]");
+  if (eventsBox) {
+    var now = new Date();
+    var today = now.getFullYear() + "-" + String(now.getMonth() + 1).padStart(2, "0") + "-" + String(now.getDate()).padStart(2, "0");
+    var upcoming = (SKL.events || []).filter(function (e) { return e.date >= today; })
+      .sort(function (a, b) { return a.date < b.date ? -1 : a.date > b.date ? 1 : 0; });
+
+    eventsBox.innerHTML = upcoming.length
+      ? '<ul class="events">' + upcoming.map(function (e) {
+          return '<li class="event">' +
+            '<time class="event__date" datetime="' + esc(e.date) + '">' + formatDate(e.date, true) + "</time>" +
+            '<strong class="event__title">' + esc(e.title) + "</strong>" +
+            '<span class="event__time">' + esc(e.time || "") + "</span>" +
+            '<span class="event__place">' + esc(e.place || "") + "</span>" +
+            "</li>";
+        }).join("") + "</ul>" +
+        (upcoming.some(function (e) { return e.example; })
+          ? '<p class="placeholder-note">Voorlopige data. De definitieve datum en locatie bevestigen we hier en op Facebook.</p>' : "")
+      : '<p class="feed-empty">Binnenkort meer activiteiten. Volg ons op <a class="text-link" href="https://www.facebook.com/sklochristi" target="_blank" rel="noopener">Facebook</a>.</p>';
   }
 
   /* ---------- Over ons: sub navigation highlight ---------- */
