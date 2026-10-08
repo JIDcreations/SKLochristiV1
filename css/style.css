@@ -154,8 +154,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .site-nav__sub a[aria-current="page"] { background: var(--color-primary-hover); color: var(--color-white); }
 .site-nav__cta { margin-left: .5rem; }
 .site-nav__cta a { background: var(--color-white); color: var(--color-primary); }
-.site-nav__cta a:hover,
-.site-nav__cta a[aria-current="page"] { background: var(--color-primary-hover); color: var(--color-white); }
+.site-nav__cta a:hover { background: var(--color-primary-hover); color: var(--color-white); }
 
 @media (max-width: 960px) {
   .nav-toggle { display: block; }
