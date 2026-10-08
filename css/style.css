@@ -110,7 +110,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 }
 .brand span {
   font-family: var(--font-display); font-weight: 800; font-size: 1.6rem;
-  line-height: 1; letter-spacing: .01em;
+  line-height: 1; letter-spacing: .01em; white-space: nowrap;
 }
 
 .nav-toggle {
@@ -153,6 +153,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 .site-nav__sub a:hover { background: var(--color-line); color: var(--color-primary); }
 .site-nav__sub a[aria-current="page"] { background: var(--color-primary-hover); color: var(--color-white); }
 .site-nav__cta { margin-left: .5rem; }
+.site-nav__cta svg { width: .75em; height: .75em; margin-left: .2em; vertical-align: .05em; }
 .site-nav__cta a { background: var(--color-white); color: var(--color-primary); }
 .site-nav__cta a:hover { background: var(--color-primary-hover); color: var(--color-white); }
 
