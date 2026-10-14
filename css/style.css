@@ -183,6 +183,15 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   .site-nav__cta a { display: inline-block; font-family: var(--font-body); font-size: 1.1rem; font-weight: 700; padding: .75rem 1.25rem; border-radius: 999px; background: var(--color-white); color: var(--color-primary); }
 }
 
+/* Club-dropdown: ook open bij hover (enkel desktop met muis) */
+@media (hover: hover) and (min-width: 961px) {
+  .site-nav__group:hover .site-nav__sub { display: flex !important; }
+  .site-nav__group:hover > .site-nav__trigger { background: var(--color-primary-hover); color: var(--color-white); }
+  .site-nav__group:hover .site-nav__trigger svg { transform: rotate(180deg); }
+  /* onzichtbare brug zodat het menu niet sluit in de opening tussen knop en menu */
+  .site-nav__sub::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: .6rem; }
+}
+
 /* --------------------------------------------------------------------------
    Buttons & links
    -------------------------------------------------------------------------- */
@@ -485,24 +494,85 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   border-bottom: 1px solid var(--color-rule);
 }
 
-/* article */
-.article-head { padding-block: clamp(2.5rem, 1.5rem + 4vw, 5rem) 2rem; }
-.article-head .wrap, .article-body { max-width: 48rem; }
-.back-link { display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; text-decoration: none; margin-bottom: 2rem; color: var(--color-muted); }
-.back-link:hover { color: var(--color-primary); }
-.back-link svg { width: 1rem; height: 1rem; }
-.article-head h1 { font-size: var(--step-4); margin: 1rem 0 1.25rem; }
-.byline { display: flex; align-items: center; gap: .75rem; color: var(--color-muted); font-size: var(--step--1); }
-.byline .avatar { width: 2.5rem; height: 2.5rem; font-size: .9rem; }
-.byline strong { color: var(--color-primary); display: block; font-size: var(--step-0); }
-.article-cover { max-width: 64rem; margin-inline: auto; padding-inline: var(--gutter); }
-.article-cover img { width: 100%; border-radius: var(--radius-m); max-height: 38rem; object-fit: cover; }
-.article-cover--poster img { max-height: none; max-width: 32rem; margin-inline: auto; }
-.article-body { margin-inline: auto; padding: 3rem var(--gutter) 1rem; font-size: 1.125rem; line-height: 1.75; }
-.article-body p:first-child { font-size: var(--step-1); font-weight: 600; line-height: 1.55; }
-.article-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 14rem), 1fr)); gap: .75rem; max-width: 64rem; margin: 2rem auto 0; padding-inline: var(--gutter); }
+/* article — blauwe kop met krijtlijnen, foto die over de kop valt, leeskolom */
+.article-hero {
+  position: relative; overflow: hidden; isolation: isolate;
+  background: var(--color-primary); color: var(--color-white);
+  padding-block: clamp(2rem, 1.5rem + 2vw, 3rem) clamp(9rem, 5rem + 13vw, 17rem);
+}
+.article-hero--poster, .article-hero--plain { padding-bottom: clamp(3rem, 2rem + 4vw, 5rem); }
+.article-hero .page-hero__lines { right: -10rem; }
+.article-hero__inner { max-width: 64rem; display: grid; grid-template-columns: 1fr; gap: 2.5rem clamp(2rem, 1rem + 4vw, 5rem); align-items: center; }
+.article-hero--poster .article-hero__inner { grid-template-columns: 1fr minmax(14rem, 22rem); }
+.article-hero h1 {
+  font-size: clamp(2.75rem, 1.4rem + 5.2vw, 5.75rem); font-weight: 900; line-height: .88;
+  margin: 1.1rem 0 1.75rem; max-width: 16ch;
+}
+.article-hero .story__meta .date { color: rgb(255 255 255 / .72); }
+.article-hero .tag { background: var(--color-white); color: var(--color-primary); }
+.article-hero .tag--jeugd { background: #dcecff; color: #0a4fa8; }
+.article-hero .tag--club { background: var(--color-primary-hover); color: var(--color-white); }
+.back-link { display: inline-flex; align-items: center; gap: .4rem; font-weight: 700; text-decoration: none; margin-bottom: 2rem; color: rgb(255 255 255 / .7); }
+.back-link:hover { color: var(--color-white); }
+.back-link svg { width: 1rem; height: 1rem; transition: transform .2s var(--ease); }
+.back-link:hover svg { transform: translateX(-3px); }
+.byline { display: flex; align-items: center; gap: .75rem; font-size: var(--step--1); color: rgb(255 255 255 / .72); }
+.byline .avatar { width: 2.75rem; height: 2.75rem; font-size: 1rem; border-color: var(--color-white); color: var(--color-white); background: transparent; }
+.byline strong { color: var(--color-white); display: block; font-size: var(--step-0); }
+.article-hero__poster { margin: 0; }
+.article-hero__poster img { width: 100%; border-radius: var(--radius-m); box-shadow: 0 2rem 3rem -1.5rem rgb(0 0 0 / .55); }
+
+.article-photo {
+  position: relative; z-index: 1;
+  max-width: 64rem; margin: calc(-1 * clamp(7rem, 3.5rem + 11vw, 15rem)) auto 0; padding-inline: var(--gutter);
+}
+.article-photo img {
+  width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: var(--radius-m);
+  box-shadow: 0 2.5rem 4rem -2rem rgb(0 13 61 / .5);
+}
+
+.article-body {
+  max-width: calc(42rem + 2 * var(--gutter)); margin-inline: auto;
+  padding: clamp(2.5rem, 2rem + 2vw, 4rem) var(--gutter) 0;
+  font-size: 1.125rem; line-height: 1.75;
+}
+.article-body > p:first-child {
+  font-size: clamp(1.25rem, 1.1rem + .6vw, 1.5rem); font-weight: 600; line-height: 1.5;
+  padding-left: 1.25rem; border-left: 3px solid var(--color-primary-hover); margin-bottom: 1.75em;
+}
+.article-body h2, .article-body h3 { font-size: var(--step-3); margin: 2.5rem 0 1rem; }
+.article-body blockquote {
+  margin: 2.5rem 0; padding-left: 1.25rem; border-left: var(--chalk) solid var(--color-shirt);
+  font-family: var(--font-display); font-weight: 800; font-size: var(--step-2); line-height: 1.2; color: var(--color-shirt);
+}
+.article-body figure { margin: 2.5rem 0; }
+.article-body img { border-radius: var(--radius-s); }
+.article-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 12rem), 1fr)); gap: .75rem; }
 .article-gallery img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: var(--radius-s); }
-.article-gallery figcaption { font-size: var(--step--1); color: var(--color-muted); margin-top: .35rem; }
+
+.article-share {
+  max-width: calc(42rem + 2 * var(--gutter)); margin: clamp(2.5rem, 2rem + 2vw, 3.5rem) auto 0; padding-inline: var(--gutter);
+}
+.article-share__inner { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; padding-top: 1.5rem; border-top: 1px solid var(--color-rule); }
+.article-share__label { font-family: var(--font-display); font-weight: 800; font-size: var(--step-1); margin-right: auto; }
+.article-share__links { display: flex; flex-wrap: wrap; gap: .5rem; }
+.share-btn {
+  display: inline-flex; align-items: center; gap: .5rem; padding: .55rem 1rem;
+  border: 2px solid var(--color-rule); border-radius: 999px; background: var(--color-white);
+  font: inherit; font-weight: 700; font-size: var(--step--1); color: var(--color-primary); text-decoration: none; cursor: pointer;
+  transition: border-color .2s, background-color .2s, color .2s;
+}
+.share-btn svg { width: 1.05rem; height: 1.05rem; flex: none; }
+.share-btn:hover { border-color: var(--color-primary); }
+.share-btn.is-copied { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-white); }
+
+@media (max-width: 760px) {
+  .article-hero--poster .article-hero__inner { grid-template-columns: 1fr; }
+  .article-hero__poster { max-width: 20rem; }
+  .article-photo img { aspect-ratio: 4 / 3; }
+  .article-share__label { width: 100%; }
+}
+
 
 /* --------------------------------------------------------------------------
    Club intro (home)

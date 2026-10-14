@@ -52,6 +52,33 @@
       "</div></article>";
   }
 
+  var SHARE_ICONS = {
+    facebook: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4c-.3 0-1.2-.1-2.2-.1-2.2 0-3.7 1.3-3.7 3.8v2.4H8v3h2.6V21h2.9z"/></svg>',
+    whatsapp: '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1-.7-.3-1.4-.7-2-1.3-.5-.5-1-1.1-1.3-1.7-.1-.2 0-.4.1-.5l.4-.4.2-.4v-.4l-.8-1.9c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.6.6-.9 1.3-.9 2.1 0 .9.4 1.8.9 2.5 1.1 1.6 2.5 2.9 4.2 3.7.5.2 1 .4 1.4.5.6.2 1.1.1 1.6.1.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.1-1.2l-.2-.2z"/></svg>',
+    link: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M10 14a4.5 4.5 0 0 0 6.4 0l3-3a4.5 4.5 0 0 0-6.4-6.4l-1 1"/><path d="M14 10a4.5 4.5 0 0 0-6.4 0l-3 3a4.5 4.5 0 0 0 6.4 6.4l1-1"/></svg>'
+  };
+
+  function shareBar(title) {
+    var url = encodeURIComponent(location.href);
+    return '<aside class="article-share" aria-label="Deel dit bericht"><div class="article-share__inner">' +
+      '<span class="article-share__label">Deel dit bericht</span><div class="article-share__links">' +
+      '<a class="share-btn" href="https://www.facebook.com/sharer/sharer.php?u=' + url + '" target="_blank" rel="noopener">' + SHARE_ICONS.facebook + "Facebook</a>" +
+      '<a class="share-btn" href="https://wa.me/?text=' + encodeURIComponent(title + " ") + url + '" target="_blank" rel="noopener">' + SHARE_ICONS.whatsapp + "WhatsApp</a>" +
+      '<button class="share-btn" type="button" data-copy-link>' + SHARE_ICONS.link + "<span>Link kopiëren</span></button>" +
+      "</div></div></aside>";
+  }
+
+  document.addEventListener("click", function (e) {
+    var btn = e.target.closest && e.target.closest("[data-copy-link]");
+    if (!btn || !navigator.clipboard) return;
+    navigator.clipboard.writeText(location.href).then(function () {
+      var label = btn.querySelector("span");
+      btn.classList.add("is-copied");
+      label.textContent = "Gekopieerd";
+      setTimeout(function () { btn.classList.remove("is-copied"); label.textContent = "Link kopiëren"; }, 2000);
+    });
+  });
+
   /* ---------- Header nav ---------- */
   var toggle = $(".nav-toggle");
   var nav = $(".site-nav");
@@ -87,6 +114,7 @@
     });
     document.addEventListener("click", function (e) { if (!group.contains(e.target)) setOpen(false); });
     group.addEventListener("focusout", function (e) { if (!group.contains(e.relatedTarget)) setOpen(false); });
+    group.addEventListener("mouseleave", function () { if (window.matchMedia("(hover: hover) and (min-width: 961px)").matches) setOpen(false); });
     document.addEventListener("keydown", function (e) {
       if (e.key === "Escape" && group.classList.contains("is-open")) { setOpen(false); trigger.focus(); }
     });
@@ -171,19 +199,27 @@
     var more = news.filter(function (n) { return n !== item && n.category === item.category; }).slice(0, 3);
     if (more.length < 3) more = more.concat(news.filter(function (n) { return n !== item && more.indexOf(n) === -1; }).slice(0, 3 - more.length));
 
+    var words = item.body.join(" ").split(/\s+/).length;
+    var minutes = Math.max(1, Math.round(words / 200));
+    var lines = '<svg class="page-hero__lines" viewBox="0 0 400 400" aria-hidden="true"><circle cx="200" cy="200" r="150"/><line x1="200" y1="-200" x2="200" y2="600"/><circle cx="200" cy="200" r="4" style="fill:currentColor"/></svg>';
+    var poster = item.poster ? '<figure class="article-hero__poster"><img src="' + esc(item.image) + '" alt=""></figure>' : "";
+
     article.innerHTML =
-      '<header class="article-head"><div class="wrap">' +
-        '<a class="back-link" href="nieuws.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Alle nieuws</a>' +
-        storyMeta(item) +
-        "<h1>" + esc(item.title) + "</h1>" +
-        '<div class="byline"><span class="avatar" aria-hidden="true">' + esc(initials(item.author)) + "</span>" +
-          "<div><strong>" + esc(item.author) + '</strong><time datetime="' + item.date + '">' + formatDate(item.date, true) + "</time></div></div>" +
-      "</div></header>" +
-      '<figure class="article-cover' + (item.poster ? " article-cover--poster" : "") + '" style="margin-block:0"><img src="' + esc(item.image) + '" alt=""></figure>' +
-      '<div class="article-body">' + item.body.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") + "</div>" +
+      '<header class="article-hero' + (item.poster ? " article-hero--poster" : "") + '">' + lines +
+        '<div class="wrap article-hero__inner"><div>' +
+          '<a class="back-link" href="nieuws.html"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M15 18l-6-6 6-6"/></svg>Alle nieuws</a>' +
+          storyMeta(item).replace("</div>", '<span class="date">' + minutes + " min lezen</span></div>") +
+          "<h1>" + esc(item.title) + "</h1>" +
+          '<div class="byline"><span class="avatar" aria-hidden="true">' + esc(initials(item.author)) + "</span>" +
+            "<div><strong>" + esc(item.author) + '</strong><time datetime="' + item.date + '">' + formatDate(item.date, true) + "</time></div></div>" +
+        "</div>" + poster + "</div>" +
+      "</header>" +
+      (item.poster ? "" : '<figure class="article-photo" style="margin-bottom:0"><img src="' + esc(item.image) + '" alt=""></figure>') +
+      '<div class="article-body">' + item.body.map(function (p) { return "<p>" + esc(p) + "</p>"; }).join("") +
       (item.gallery ? '<div class="article-gallery">' + item.gallery.map(function (g) {
         return '<figure style="margin:0"><img src="' + esc(g) + '" alt="" loading="lazy"></figure>';
-      }).join("") + "</div>" : "");
+      }).join("") + "</div>" : "") +
+      "</div>" + shareBar(item.title);
 
     var moreList = $("[data-more-news]");
     if (moreList) moreList.innerHTML = more.map(function (n) { return storyCard(n); }).join("");
