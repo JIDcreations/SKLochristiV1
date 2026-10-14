@@ -198,7 +198,7 @@
     description: "Foto, categorie, auteur en samenvatting van het nieuwsbericht. Enkel zichtbaar in de editor.",
     icon: "id-alt",
     category: "sklochristi",
-    supports: { html: false, inserter: false, multiple: false, reusable: false, lock: false },
+    supports: { html: false, inserter: false, multiple: false, reusable: false, lock: false, __experimentalToolbar: false },
     edit: PostSetup,
     save: function () { return null; }
   });
@@ -282,7 +282,7 @@
     description: "Rubriek, omschrijving en pdf van het document. Enkel zichtbaar in de editor.",
     icon: "media-document",
     category: "sklochristi",
-    supports: { html: false, inserter: false, multiple: false, reusable: false },
+    supports: { html: false, inserter: false, multiple: false, reusable: false, lock: false, __experimentalToolbar: false },
     edit: DocumentSetup,
     save: function () { return null; }
   });

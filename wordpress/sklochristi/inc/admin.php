@@ -138,7 +138,7 @@ add_action( 'enqueue_block_assets', function () {
 
 /* Document: zelfde leeskolom als op de site */
 .post-type-document .is-root-container, .post-type-document .editor-post-title { max-width: calc(48rem + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
-.post-type-document .editor-post-title { margin-top: 3rem; margin-bottom: 2rem; font-size: var(--step-3); }
+.post-type-document .editor-post-title { margin-top: 3rem; margin-bottom: 3.5rem; font-size: var(--step-3); }
 .post-type-document .skl-setup { margin: 0 calc(-1 * clamp(0rem, 3vw, 6rem)) 2.5rem !important; }
 
 .skl-manage {
