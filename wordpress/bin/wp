@@ -9,7 +9,7 @@ LOCAL_DATA="$HOME/Library/Application Support/Local"
 SITE_ID=$(python3 -c "
 import json,sys
 d=json.load(open('$LOCAL_DATA/sites.json'))
-print(next(k for k,v in d.items() if v.get('path','').rstrip('/').endswith('Local Sites/Sklochristi')))
+print(next(k for k,v in d.items() if v.get('path','').rstrip('/').lower().endswith('local sites/sklochristi')))
 ") || { echo "Local-site niet gevonden" >&2; exit 1; }
 
 PHP_VERSION=$(python3 -c "import json;print(json.load(open('$LOCAL_DATA/sites.json'))['$SITE_ID']['services']['php']['version'])")
