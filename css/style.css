@@ -617,6 +617,8 @@ p { margin: 0 0 1em; text-wrap: pretty; }
   transition: filter .25s, opacity .25s;
 }
 .board:hover img { filter: none; opacity: 1; }
+.board > a { position: absolute; inset: 0; }
+.board > a:focus-visible { outline-offset: -3px; }
 .board--cta {
   background: var(--color-primary); color: var(--color-white);
   text-decoration: none; text-align: center;

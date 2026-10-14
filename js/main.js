@@ -139,7 +139,8 @@
   $all("[data-sponsors]").forEach(function (list) {
     var limit = parseInt(list.getAttribute("data-sponsors"), 10) || SKL.sponsors.length;
     var html = SKL.sponsors.slice(0, limit).map(function (s) {
-      return '<li class="board"><img src="' + esc(s.logo) + '" alt="' + esc(s.name) + '" loading="lazy"></li>';
+      var logo = '<img src="' + esc(s.logo) + '" alt="' + esc(s.name) + '" loading="lazy">';
+      return '<li class="board">' + (s.url ? '<a href="' + esc(s.url) + '" target="_blank" rel="noopener">' + logo + "</a>" : logo) + "</li>";
     }).join("");
     if (list.hasAttribute("data-sponsor-cta")) {
       html += '<li class="board board--cta"><a href="sponsor-worden.html" style="display:grid;place-items:center;text-decoration:none;color:inherit;padding:.75rem">' +

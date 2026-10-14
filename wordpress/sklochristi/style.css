@@ -1069,6 +1069,7 @@ p.text-link { margin: 0; }
 
 /* Home: sponsorborden */
 .board > a { position: absolute; inset: 0; }
+.board > a:focus-visible { outline-offset: -3px; }
 .board > span { font-weight: 700; text-align: center; }
 .board--cta a { display: grid; place-items: center; text-decoration: none; color: inherit; padding: .75rem; }
 .sponsor-strip p { margin: 0; }

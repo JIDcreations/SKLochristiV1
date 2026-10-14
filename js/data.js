@@ -318,6 +318,8 @@ SKL.events = [
   { "date": "2027-08-14", "title": "Willy Sergeant Cup", "time": "Bbq vanaf 19u30", "place": "Locatie volgt", "example": true }
 ];
 
+/* Sponsors: voeg "url" toe om het logo naar de website van de sponsor te laten linken,
+   bv. { "name": "...", "logo": "...", "url": "https://..." } */
 SKL.sponsors = [
   {
     "name": "Mega Doe-het-zelf Deschacht",
