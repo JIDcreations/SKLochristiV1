@@ -203,6 +203,90 @@
     save: function () { return null; }
   });
 
+  /* ---------- Documentkaart: rubriek, omschrijving, pdf ---------- */
+  function DocumentSetup() {
+    var blockProps = be.useBlockProps({ className: "skl-setup" });
+    var terms = useEntityProp("postType", "document", "rubriek");
+    var meta = useEntityProp("postType", "document", "meta");
+    var m = meta[0] || {};
+    var setMeta = function (key, value) { var o = Object.assign({}, m); o[key] = value; meta[1](o); };
+    var data = useSelect(function (select) {
+      var core = select("core");
+      return {
+        rubrieken: core.getEntityRecords("taxonomy", "rubriek", { per_page: -1, orderby: "id", order: "asc" }),
+        pdf: m.pdf ? core.getMedia(m.pdf) : null
+      };
+    }, [m.pdf]);
+    var current = terms[0] || [];
+    var fileName = data.pdf && (data.pdf.source_url || "").split("/").pop();
+
+    var pdf = m.pdf
+      ? el("div", { className: "skl-setup__file" },
+          el("div", { className: "skl-setup__file-info" },
+            el("svg", { viewBox: "0 0 24 24", width: 36, height: 36, fill: "none", stroke: "currentColor", strokeWidth: 1.8, "aria-hidden": true },
+              el("path", { d: "M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z" }), el("path", { d: "M14 3v5h5M9 13h6M9 17h4" })),
+            el("div", null,
+              el("strong", null, data.pdf ? (data.pdf.title && data.pdf.title.rendered) || fileName : "Pdf laden…"),
+              fileName ? el("span", null, fileName) : null
+            )
+          ),
+          el("div", { className: "skl-setup__photo-actions" },
+            el(be.MediaUpload, {
+              onSelect: function (media) { setMeta("pdf", media.id); }, allowedTypes: ["application/pdf"], value: m.pdf,
+              render: function (o) { return el(c.Button, { variant: "secondary", onClick: o.open }, "Andere pdf"); }
+            }),
+            el(c.Button, { variant: "tertiary", isDestructive: true, onClick: function () { setMeta("pdf", 0); } }, "Verwijderen")
+          )
+        )
+      : el(be.MediaPlaceholder, {
+          icon: "pdf",
+          labels: { title: "Pdf", instructions: "Sleep een pdf hierheen, upload er een of kies uit de mediabibliotheek. Bezoekers kunnen hem downloaden." },
+          accept: "application/pdf", allowedTypes: ["application/pdf"],
+          onSelect: function (media) { setMeta("pdf", media.id); }
+        });
+
+    return el("div", blockProps,
+      el("div", { className: "skl-setup__head" },
+        el("strong", null, "Document"),
+        el("span", null, "Kies een rubriek, voeg een pdf toe en/of schrijf de tekst eronder. Klik dan op Publiceren.")
+      ),
+      el("div", { className: "skl-setup__grid skl-setup__grid--doc" },
+        el("div", { className: "skl-setup__fields" },
+          el("div", { className: "skl-setup__field" },
+            el("span", { className: "skl-setup__label" }, "Rubriek op de pagina Documenten"),
+            el("div", { className: "skl-setup__pills", role: "group", "aria-label": "Rubriek" },
+              data.rubrieken ? data.rubrieken.map(function (t) {
+                var on = current.indexOf(t.id) !== -1;
+                return el("button", {
+                  key: t.id, type: "button", className: "skl-setup__pill" + (on ? " is-on" : ""), "aria-pressed": on,
+                  onClick: function () { terms[1]([t.id]); }
+                }, t.name);
+              }) : el(c.Spinner)
+            ),
+            !current.length ? el("p", { className: "skl-setup__warn" }, "Kies een rubriek, anders verschijnt het document nergens op de site.") : null
+          ),
+          el(c.TextControl, {
+            label: "Korte omschrijving", value: m.omschrijving || "", placeholder: "Bv. Voor jeugdtrainers",
+            help: "Kleine regel onder de titel.", onChange: function (v) { setMeta("omschrijving", v); },
+            __nextHasNoMarginBottom: true, __next40pxDefaultSize: true
+          })
+        ),
+        el("div", { className: "skl-setup__photo" }, pdf)
+      )
+    );
+  }
+
+  wp.blocks.registerBlockType("skl/document-setup", {
+    apiVersion: 3,
+    title: "Documentkaart",
+    description: "Rubriek, omschrijving en pdf van het document. Enkel zichtbaar in de editor.",
+    icon: "media-document",
+    category: "sklochristi",
+    supports: { html: false, inserter: false, multiple: false, reusable: false },
+    edit: DocumentSetup,
+    save: function () { return null; }
+  });
+
   Object.keys(blocks).forEach(function (name) {
     var def = blocks[name];
     var full = "skl/" + name;

@@ -129,6 +129,18 @@ add_action( 'enqueue_block_assets', function () {
 }
 .skl-setup__pill:hover { border-color: var(--color-primary); }
 .skl-setup__pill.is-on { background: var(--color-primary); border-color: var(--color-primary); color: var(--color-white); }
+.skl-setup__warn { margin: .6rem 0 0; color: #b32d2e; font-size: 13px; }
+.skl-setup__grid--doc { grid-template-columns: 1fr 1fr; }
+.skl-setup__file { padding: 1rem; background: var(--color-line); border-radius: var(--radius-s); }
+.skl-setup__file-info { display: flex; gap: .75rem; align-items: center; color: var(--color-shirt); }
+.skl-setup__file-info strong { display: block; color: var(--color-primary); }
+.skl-setup__file-info span { display: block; color: var(--color-muted); font-size: 13px; overflow-wrap: anywhere; }
+
+/* Document: zelfde leeskolom als op de site */
+.post-type-document .is-root-container, .post-type-document .editor-post-title { max-width: calc(48rem + 2 * var(--gutter)); margin-inline: auto; padding-inline: var(--gutter); }
+.post-type-document .editor-post-title { margin-top: 3rem; margin-bottom: 2rem; font-size: var(--step-3); }
+.post-type-document .skl-setup { margin: 0 calc(-1 * clamp(0rem, 3vw, 6rem)) 2.5rem !important; }
+
 .skl-manage {
   display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1rem; margin-bottom: 1rem; padding: .75rem 1rem;
   background: #fff8e5; border: 1px solid #f0c33c; border-radius: 6px;

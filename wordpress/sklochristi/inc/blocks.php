@@ -28,6 +28,7 @@ function skl_blocks() {
 		'article-head' => array( 'render' => 'skl_block_article_head' ),
 		'article-share' => array( 'render' => 'skl_block_article_share' ),
 		'post-setup'   => array( 'render' => '__return_empty_string' ),
+		'document-setup' => array( 'render' => '__return_empty_string' ),
 		'more-news'    => array( 'render' => 'skl_block_more_news' ),
 		'events'       => array( 'render' => 'skl_block_events' ),
 		'sponsors'     => array(
@@ -374,15 +375,25 @@ function skl_block_documents( $a ) {
 	foreach ( $docs as $doc ) {
 		$meta = (string) get_post_meta( $doc->ID, 'omschrijving', true );
 		$pdf  = (int) get_post_meta( $doc->ID, 'pdf', true );
+		$url  = $pdf ? wp_get_attachment_url( $pdf ) : '';
+		$text = trim( wp_strip_all_tags( excerpt_remove_blocks( $doc->post_content ) ) );
+		$head = '<span class="doc__title">' . esc_html( get_the_title( $doc ) ) . '</span>'
+			. ( $meta ? '<span class="doc__meta">' . esc_html( $meta ) . '</span>' : '' );
+
+		// Enkel een pdf, geen tekst: meteen een downloadlijn.
+		if ( '' === $text ) {
+			if ( $url ) {
+				$out .= '<a class="doc doc--file" id="' . esc_attr( $doc->post_name ) . '" href="' . esc_url( $url ) . '" target="_blank" rel="noopener">' . $head . '</a>';
+			}
+			continue;
+		}
+
 		$body = apply_filters( 'the_content', $doc->post_content );
-		if ( $pdf && wp_get_attachment_url( $pdf ) ) {
-			$body .= '<p class="doc__download"><a class="btn btn--ghost" href="' . esc_url( wp_get_attachment_url( $pdf ) ) . '" target="_blank" rel="noopener">'
+		if ( $url ) {
+			$body .= '<p class="doc__download"><a class="btn btn--ghost" href="' . esc_url( $url ) . '" target="_blank" rel="noopener">'
 				. skl_icon( 'download' ) . 'Download pdf<span class="visually-hidden">: ' . esc_html( get_the_title( $doc ) ) . '</span></a></p>';
 		}
-		$out .= '<details class="doc" id="' . esc_attr( $doc->post_name ) . '"><summary>'
-			. '<span class="doc__title">' . esc_html( get_the_title( $doc ) ) . '</span>'
-			. ( $meta ? '<span class="doc__meta">' . esc_html( $meta ) . '</span>' : '' )
-			. '</summary><div class="doc__body">' . $body . '</div></details>';
+		$out .= '<details class="doc" id="' . esc_attr( $doc->post_name ) . '"><summary>' . $head . '</summary><div class="doc__body">' . $body . '</div></details>';
 	}
 
 	return '<div class="docs">' . $out . '</div>';
@@ -413,17 +424,24 @@ add_action( 'init', function () {
 		array( 'core/paragraph', array( 'placeholder' => 'Intro: vat het bericht samen in 1 à 2 zinnen. Deze tekst staat groot bovenaan het artikel.' ) ),
 		array( 'core/paragraph', array( 'placeholder' => 'Schrijf hier het bericht. Druk op Enter voor een nieuwe alinea, of op + voor een foto of galerij.' ) ),
 	);
+	$doc = get_post_type_object( 'document' );
+	$doc->template = array(
+		array( 'skl/document-setup', array( 'lock' => array( 'move' => true, 'remove' => true ) ) ),
+		array( 'core/paragraph', array( 'placeholder' => 'Tekst van het document (optioneel). Laat leeg als je enkel een pdf wil aanbieden.' ) ),
+	);
 }, 20 );
 
 // Bestaande berichten krijgen de berichtkaart ook zodra ze in de editor openen.
-add_filter( 'rest_prepare_post', function ( $response, $post, $request ) {
-	if ( 'edit' !== $request['context'] || has_block( 'skl/post-setup', $post ) ) {
+foreach ( array( 'post' => 'skl/post-setup', 'document' => 'skl/document-setup' ) as $skl_type => $skl_block ) {
+	add_filter( 'rest_prepare_' . $skl_type, function ( $response, $post, $request ) use ( $skl_block ) {
+		if ( 'edit' !== $request['context'] || has_block( $skl_block, $post ) ) {
+			return $response;
+		}
+		$data = $response->get_data();
+		if ( isset( $data['content']['raw'] ) ) {
+			$data['content']['raw'] = '<!-- wp:' . $skl_block . ' {"lock":{"move":true,"remove":true}} /-->' . "\n\n" . $data['content']['raw'];
+			$response->set_data( $data );
+		}
 		return $response;
-	}
-	$data = $response->get_data();
-	if ( isset( $data['content']['raw'] ) ) {
-		$data['content']['raw'] = '<!-- wp:skl/post-setup {"lock":{"move":true,"remove":true}} /-->' . "\n\n" . $data['content']['raw'];
-		$response->set_data( $data );
-	}
-	return $response;
-}, 10, 3 );
+	}, 10, 3 );
+}

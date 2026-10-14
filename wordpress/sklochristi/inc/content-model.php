@@ -58,7 +58,7 @@ add_action( 'init', function () {
 		'labels'        => skl_labels( 'Document', 'Documenten' ),
 		'menu_icon'     => 'dashicons-media-document',
 		'menu_position' => 23,
-		'supports'      => array( 'title', 'editor', 'page-attributes' ),
+		'supports'      => array( 'title', 'editor', 'page-attributes', 'custom-fields' ),
 	) );
 
 	register_taxonomy( 'rubriek', 'document', array(
@@ -229,34 +229,13 @@ add_action( 'acf/init', function () {
 		),
 	) );
 
-	acf_add_local_field_group( array(
-		'key'      => 'group_skl_document',
-		'title'    => 'Document',
-		'location' => array( array( array( 'param' => 'post_type', 'operator' => '==', 'value' => 'document' ) ) ),
-		'position' => 'side',
-		'fields'   => array(
-			array(
-				'key'          => 'field_skl_document_omschrijving',
-				'name'         => 'omschrijving',
-				'label'        => 'Korte omschrijving',
-				'type'         => 'text',
-				'instructions' => 'Kleine regel onder de titel. Bv. "Voor jeugdtrainers".',
-			),
-			array(
-				'key'           => 'field_skl_document_pdf',
-				'name'          => 'pdf',
-				'label'         => 'Pdf',
-				'type'          => 'file',
-				'return_format' => 'id',
-				'mime_types'    => 'pdf',
-			),
-		),
-	) );
 } );
 
 // Nieuwsberichten: auteur en affiche worden ingevuld via de berichtkaart in de editor.
 add_action( 'init', function () {
 	$auth = fn() => current_user_can( 'edit_posts' );
 	register_post_meta( 'post', 'auteur', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'default' => '', 'auth_callback' => $auth ) );
+	register_post_meta( 'document', 'omschrijving', array( 'type' => 'string', 'single' => true, 'show_in_rest' => true, 'default' => '', 'auth_callback' => $auth ) );
+	register_post_meta( 'document', 'pdf', array( 'type' => 'integer', 'single' => true, 'show_in_rest' => true, 'default' => 0, 'auth_callback' => $auth ) );
 	register_post_meta( 'post', 'affiche', array( 'type' => 'boolean', 'single' => true, 'show_in_rest' => true, 'default' => false, 'auth_callback' => $auth ) );
 } );
