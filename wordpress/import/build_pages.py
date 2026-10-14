@@ -10,7 +10,7 @@ OUT.mkdir(parents=True, exist_ok=True)
 
 SPONSOR_PDF = "{{FILE:https://sklochristi.be/wp-content/uploads/2023/02/SK-Lochristi-Sponsor-deck-compressed.pdf}}"
 MISSIE_PDF = "{{FILE:https://sklochristi.be/wp-content/uploads/2021/02/Missie-en-visie-SK-Lochristi.pdf}}"
-TEAMTRAINING = "https://sklochristi.be/club/jeugd/hoe-aansluiten/"
+TEAMTRAINING = "https://docs.google.com/forms/d/e/1FAIpQLSfElnLoeYssrxWp-6Nf4OeEdFlwf20P20LcjPbsWp9aTo-eow/viewform"
 
 pages = {}
 
@@ -169,23 +169,20 @@ def step(title, text):
 
 pages["lid-worden"] = "\n\n".join([
     section([
-        section_head("Hoe word je lid bij SK Lochristi?", action=buttons(button("Teamtraining aanvragen", TEAMTRAINING))),
+        section_head("Hoe word je lid bij SK Lochristi?"),
         group([
             step("Aanvraag teamtraining", "Vul het aanvraagformulier in om een proeftraining bij SK Lochristi aan te vragen. Vertel ons wat meer over jezelf, je geboortejaar en je voetbalervaring."),
             step("We nemen contact op", "Na je aanvraag nemen we contact met je op. We bekijken samen welk team het beste bij je past en spreken een moment af om mee te trainen."),
             step("Meetrainen", "Tijd om het veld op te gaan! Je traint mee met het team en ontdekt de sfeer, onze werking en de manier waarop we samen beter worden."),
             step("Evaluatie", "Na de proeftraining bekijken we samen hoe het verlopen is. We bespreken de mogelijkheden en de volgende stappen richting een aansluiting bij SK Lochristi."),
         ], "steps steps--light"),
-        group([
-            person("Wesley Quatacker", "Assistent TVJO, aanspreekpunt voor nieuwe jeugdspelers"),
-            buttons(button("Mail Wesley", "mailto:avjo@sklochristi.be")),
-        ], "contact-card contact-card--light"),
+        buttons(button("Teamtraining aanvragen", TEAMTRAINING, external=True), cls="steps-cta"),
         p('Seniorspeler? Mail naar <a href="mailto:info@sklochristi.be">info@sklochristi.be</a>.', "note"),
     ], anchor="lid-worden"),
     section([
         group([
             group([heading("Ook zin om bij SK Lochristi te voetballen?"), p("Zet de eerste stap en vraag je teamtraining aan. We kijken ernaar uit om je te leren kennen!")]),
-            buttons(button("Teamtraining aanvragen", TEAMTRAINING, "white")),
+            buttons(button("Teamtraining aanvragen", TEAMTRAINING, "white", external=True)),
         ], "section-head section-head--flush"),
     ], cls="section--navy on-navy"),
     section([

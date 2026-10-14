@@ -982,6 +982,7 @@ p { margin: 0 0 1em; text-wrap: pretty; }
 /* task pages: lid worden, contact */
 .steps--light li { border-top-color: var(--color-primary); }
 .steps--light p { color: var(--color-muted); }
+.steps-cta { margin-top: 2rem; }
 .contact-card--light { background: var(--color-line); border-color: var(--color-rule); }
 .contact-card--light .avatar { border-color: var(--color-primary); color: var(--color-primary); }
 .contact-card--light div > span { color: var(--color-muted); }
