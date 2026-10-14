@@ -1,6 +1,5 @@
 /* SK Lochristi — inhoud
-   Nieuws komt van sklochristi.be (WordPress). Items met example: true zijn
-   samengesteld uit bestaande jeugdpagina's; datum is een voorbeeld. */
+   Nieuws komt van sklochristi.be (WordPress). */
 
 window.SKL = window.SKL || {};
 
@@ -12,6 +11,72 @@ SKL.links = {
 };
 
 SKL.news = [
+  {
+    "slug": "simpele-zege",
+    "title": "Simpele zege",
+    "date": "2026-10-11",
+    "author": "Peter Esprit",
+    "category": "seniors",
+    "image": "assets/img/news/DSC_5714-1024x683.jpg",
+    "poster": false,
+    "excerpt": "SK Lochristi moest niet meteen het beste voetbal bovenhalen om Edeboys met een nederlaag huiswaarts te sturen. Lochristi nam de wedstrijd meteen in handen en de bezoekers kregen geen poot…",
+    "body": [
+      "SK Lochristi moest niet meteen het beste voetbal bovenhalen om Edeboys met een nederlaag huiswaarts te sturen.",
+      "Lochristi nam de wedstrijd meteen in handen en de bezoekers kregen geen poot aan de grond. Lars Maes zorgde voor de eerste dreiging, maar zijn poging ging naast. Op het kwartier was het wel raak. Een voorzet van Mathis Vandevelde werd half gemist door Lars Maes en Sander Vandevelde kwam gepast voor zijn rechtstreekse verdediger om binnen te tikken. De bezoekers konden nauwelijks dreigen. Lochristi-doelman Aron De Raes kreeg enkel een slap schotje te verwerken. Op het half uur verdubbelde SK de voorsprong. Louis Lemaiter kopte een scherp hoekschop van Sander Vandevelde tegen de netten.",
+      "In de tweede helft liet Lochristi het tempo zakken, maar echt in de problemen kwam men nooit. Niels Vandedrinck miste de 3-0 en een schot van Wout Demeyer werd door de bezoekende doelman Lars Dekostere uit het doelvlak gehouden. De bezoekers kwamen iets meer in de wedstrijd. Een vrije trap werd door Aron De Raes over doel getikt. Lochristi speelde iets te traag om de zwakke bezoekers verder in verlegenheid te brengen. Wout Demeyer en Lars Maes probeerden vanop afstand, maar ofwel lag de doelman in de weg of het schot miste net de goede richting. De laatste kans was voor Eben Janssens. Hij kon doorjagen van Matisse Vigneri net niet verzilveren."
+    ]
+  },
+  {
+    "slug": "overtuigende-zege",
+    "title": "Overtuigende zege",
+    "date": "2026-10-04",
+    "author": "Peter Esprit",
+    "category": "seniors",
+    "image": "assets/img/news/DSC_9714-1024x715.jpg",
+    "poster": false,
+    "excerpt": "SK Lochristi haalde uit op het terrein van medeleider SK Lokeren Doorslaar. Een ruime 1-5 was het resultaat. De aanvangsfase van de wedstrijd tussen de twee leiders in de competitie…",
+    "body": [
+      "SK Lochristi haalde uit op het terrein van medeleider SK Lokeren Doorslaar. Een ruime 1-5 was het resultaat.",
+      "De aanvangsfase van de wedstrijd tussen de twee leiders in de competitie verliep rommelig. Lochristi had wel wat overwicht, maar echte kansen leverde dit niet op. Net voorbij het kwartier was de eerste kans meteen raak. Wout Demeyer kon een knappe voorzet van Sander Vandevelde fraai afwerken. Doorslaar probeerde wel, maar in de zone van de waarheid lukte weinig. De kansen waren voor Lochristi. Niels Vandedrinck dwong doelman Kenji Desante plat en Florian D’Hondt kopte een vrije trap over. Een verre inworp net voor de rust leverde de 0-2 op. De bal viel in de voeten van Niels Vandedrinck, die van dichtbij binnen trapte.",
+      "Onmiddellijk na de rust milderde de thuisploeg. Jalil Chair kon onachtzaamheid in de Lochristi-defensie afstraffen. De bezoekers reageerden snel. Niels Vandedrinck viseerde het zijnet. Lowie Van Overloop ontsnapte aan rood toen hij de doorgebroken Vandedrinck foutief stopte. Sander Vandevelde trapte de vrije trap in de verste hoek en zette Lochristi op 1-3. Matisse Vigneri kon zich even later doorzetten, maar viseerde de voeten van de thuisdoelman. Doorslaar kreeg nog een kans om te milderen. Tars Warré kopte net naast. In de 68‘ viel de definitieve beslissing. Sander Vandevelde mikte een nieuwe vrije trap opnieuw in de verste hoek en zette de 1-4 op het bord. Doorslaar kwam nadien even opzetten, maar de kansen leverden geen nieuwe treffer op. Het waren de invallers van Lochristi die voor het orgelpunt zorgden. Mathis Raes zette gepast voor en Eben Janssens kon na een knappe borstcontrole overhoeks tegen de netten trappen."
+    ],
+    "gallery": [
+      "assets/img/news/DSC_9742-1024x682.jpg"
+    ]
+  },
+  {
+    "slug": "sk-lochristi-wint-van-ho-kalken-b",
+    "title": "SK Lochristi wint van HO Kalken B",
+    "date": "2026-09-27",
+    "author": "Peter Esprit",
+    "category": "seniors",
+    "image": "assets/img/news/DSC_9672-1024x683.jpg",
+    "poster": false,
+    "excerpt": "SK Lochristi kon na de misstap in Overmere opnieuw uitpakken met een zege. HO Kalken B moest aan de Bosdreef het onderspit delven. Het openingskwartier in de derby tussen Lochristi…",
+    "body": [
+      "SK Lochristi kon na de misstap in Overmere opnieuw uitpakken met een zege. HO Kalken B moest aan de Bosdreef het onderspit delven.",
+      "Het openingskwartier in de derby tussen Lochristi en Kalken had weinig te bieden. Beide ploegen tastten elkaar af en kansen bleven uit. Daarna nam de thuisploeg de wedstrijd iets nadrukkelijker in handen. Matisse Vigneri kopte naast en ook Wout De Meyer kon zijn kopbal niet meteen goed richten. Het was slechts uitstel. Bij een nieuwe hoekschop kon Wout De Meyer de bal deze keer beter raken en Lochristi stond meteen op voorsprong. Niels Vandedrinck knalde nadien over en Matisse Vigneri zag zijn poging via een verdediger op het dak van het doel vallen. De laatste dreiging kwam dan toch van de bezoekers. Matthijs De Puydt besloot over na hoekschop en de poging van Aaron Vereecken bleek binnen het bereik van Lochristi-doelman Aaron De Raes.",
+      "HO Kalken nam na de rust de partij in handen, al was de eerste mogelijkheid voor de thuisploeg. Niels Vandedrinck trapte over. Ook de bezoekers konden dreigen en Wiebe Van Poyer miste een opgelegde kans nadat de bal bleef hangen in de zestien van Lochristi. De thuisploeg schrok wakker en voerde de druk even op. Wout De Mayer werd afgeblokt en de bezoekende doelman pareerde pogingen van Sander Vandevelde en Niels Vandedrinck. Wout De Meyer viseerde de dwarsligger na een hoekschop. De 1-0 bleef op het bord en geruststellend was deze voorsprong nog niet. Mauro Finck dwong doelman Aaron De Raes tot een knappe redding met de voet. Uiteindelijk viel de 2-0 toch. Een zoveelste hoekschop belandde in de voeten van Bauke Famaey en die duwde de bal aan de tweede paal onder de bezoekende doelman binnen. De laatste kans was voor de bezoekers. Daan Marreen besloot in het zijnet."
+    ],
+    "gallery": [
+      "assets/img/news/DSC_9640-1024x683.jpg"
+    ]
+  },
+  {
+    "slug": "skv-overmere-smeert-sk-lochristi-eerste-nederlaag-aan",
+    "title": "SKV Overmere smeert SK Lochristi eerste nederlaag aan",
+    "date": "2026-09-20",
+    "author": "Peter Esprit",
+    "category": "seniors",
+    "image": "assets/img/news/DSC_9452-1024x683.jpg",
+    "poster": false,
+    "excerpt": "SK Lochristi leed zaterdagavond zijn eerste nederlaag van het seizoen. Op het belabberde veld van SKV Overmere  profiteerde de thuisploeg optimaal van een defensieve blunder, waardoor onnodig puntenverlies werd geleden.…",
+    "body": [
+      "SK Lochristi leed zaterdagavond zijn eerste nederlaag van het seizoen. Op het belabberde veld van SKV Overmere profiteerde de thuisploeg optimaal van een defensieve blunder, waardoor onnodig puntenverlies werd geleden.",
+      "Het veld in Overmere lag er heel slecht bij en maakte goed voetbal quasi onmogelijk. Gevolg was tal van slechte passes en controles, waardoor in het aanvangskwartier de slordigheden zich opstapelden. Lochristi zette de eerste gevaarlijke aanval op, maar Matisse Vigneri zag zijn poging via de vingertoppen van Ruben Cobbaert tegen de paal belanden. Een vrije trap van Sander Vandevelde ging net over. Aan de overkant was een schot van Saber Bouaifa eenzelfde lot beschoren. Lochristi kwam dicht bij een treffer toen Wout Demeyer alleen voor doel kwam, maar opnieuw lag de sterk keepende thuisdoelman in de weg. Onmiddellijk daarna kwam Lochristi goed weg toen Yassin een unieke kans over trapte. De laatste kans was nog voor de bezoekers en opnieuw was Ruben Cobbaert paraat.",
+      "Lochristi domineerde de aanvangsfase van de tweede helft. Florian Dhont mikte een vrije trap net over en Niels Vandedrinck kreeg de bal niet onder controle toen hij alleen op doel werd afgestuurd door Matisse Vigneri. De ingevallen Warre Uyttendaele zag zijn lobbal naast doel belanden. Balverlies bij de bezoekers luidde de 1-0 in en Nassim Bantouhami nam het geschenk in dank aan. Lochristi probeerde wel, maar de thuisverdediging hield stand in het slotkwartier."
+    ]
+  },
   {
     "slug": "sk-lochristi-te-sterk-voor-juventus-schoonaarde-b",
     "title": "SK Lochristi te sterk voor Juventus Schoonaarde B",
@@ -25,22 +90,6 @@ SKL.news = [
       "SK Lochristi was zondagnamiddag nagenoeg de ganse wedstrijd baas over Juventus Schoonaarde.",
       "Lochristi nam de partij meteen in handen en dit leverde in de aanvangsfase enkele kleine kansjes op. Niels Vandedrinck en Sander Vandevelde zagen hun poging de juiste richting missen. De eerste echte mogelijkheid kwam er na een hoekschop, maar niemand kon de bal in doel verlengen. In de 23‘ kon Lochristi de ban breken. Niels Vandedrinck opende de score op aangeven van Matisse Vigneri. Schoonaarde reageerde en doelman Otto Mariën voorkwam de gelijkmaker met een knappe redding. Het was de enige kans voor de bezoekers in de eerste helft. Lochristi verdubbelde de voorsprong op het half uur. Niels Vandedrinck knikte een hoekschop van Maarten Landuyt tegen de netten. Net voor de rust maakte Niels Vandedrinck zijn hattrick rond na een knappe aanval. Deze keer was Charles Ghyselinck aangever van dienst.",
       "Na de rust zakte het tempo, al bleef SK Lochrisi de dominante ploeg. Florian Dhondt viseerde de dwarsligger en Charles Ghyselinck mikte de rebound naast. De ingevallen Lars Maes zag zijn poging door de bezoekende doelman uit het doel geranseld en ook hier ging de rebound mis. Mattias Coppens kon aan de overkant wel een rebound binnen tikken en de 3-1 aantekenen. De thuisploeg drukte daarna even door en Eben Janssens kon meteen scoren. Al bij al een makkelijke zege."
-    ]
-  },
-  {
-    "slug": "kom-een-teamtraining-meevolgen",
-    "title": "Zin om te voetballen? Kom een teamtraining meevolgen",
-    "date": "2026-09-10",
-    "author": "Jeugdwerking",
-    "category": "jeugd",
-    "image": "assets/img/club/DSC_1422.jpg",
-    "poster": false,
-    "example": true,
-    "excerpt": "Wil je kennismaken met SK Lochristi? Vraag via het formulier een teamtraining aan en we nemen contact met je op.",
-    "body": [
-      "Wil je kennismaken met SK Lochristi en een teamtraining bijwonen? Dat kan.",
-      "Onze trainingen zijn gericht op het ontwikkelen van zowel de technische als tactische vaardigheden, in een leuke en uitdagende omgeving.",
-      "Vul het aanvraagformulier voor een teamtraining in. Na het invullen nemen we contact met je op voor verdere informatie. We kijken ernaar uit om je te verwelkomen bij SK Lochristi."
     ]
   },
   {
@@ -71,23 +120,6 @@ SKL.news = [
       "SK Lochristi kreeg met de komst van Oudegem meteen een van de (mede)titelkandidaten op bezoek. Na een vroege treffer van Vincent Claeys bleef de partij een beetje steken in goede bedoelingen, maar op de nipte zege viel weinig af te dingen.",
       "Na een korte studieronde nam de thuisploeg het heft in handen en dit leverde al snel resultaat op. Matisse Vigneri bediende Vincent Claeys die de thuisploeg op voorsprong zette. De bezoekers dreigden via enkele vrije trappen en afstandsschoten die geen resultaat opleverden, al had Lochristi even het geluk aan zijn zijde toen een weggewerkte bal via een aanvaller net naast belandde. De betere kansen waren voor SK. Vincent Claeys miste van dichtbij na een redding van de bezoekende doelman. Net voor het rustsignaal moest Lochristi-doelman Otto Mariën redding brengen op een poging van Rune Maene.",
       "De beginfase van de tweede helft toonde Lochristi zich dominant, maar kansen leverde dit nauwelijks. Matisse Vigneri dwong doelman Gerco De Ridder  wel tot een voetveeg en Niels Vandedrinck trapte voorlangs. Met de 1-0 voorsprong ging men het slotkwartier in. Met wat lange ballen trachtte Oudegem het tij te keren, maar Lochristi hield stand. Rune Maene was enige bezoeker die nog voor dreiging kon zorgen. Vincent Claeys liet in de slotfase nog een mooie kans liggen, maar de 1-0 kwam niet meer in gevaar."
-    ]
-  },
-  {
-    "slug": "wie-contacteer-je-bij-de-jeugd",
-    "title": "Wie contacteer je bij de jeugd?",
-    "date": "2026-08-26",
-    "author": "Jeugdwerking",
-    "category": "jeugd",
-    "image": "assets/img/club/DSC_1554.jpg",
-    "poster": false,
-    "example": true,
-    "excerpt": "Van onderbouw tot bovenbouw: een overzicht van de technische staf van de jeugd en hoe je hen bereikt.",
-    "body": [
-      "Bij SK Lochristi staan we altijd klaar om je te helpen met je vragen. Hieronder vind je de technische staf van de jeugd.",
-      "Andy Van Rysselberghe is Technisch Verantwoordelijke Jeugdopleiding (TVJO). Hij overziet de gehele jeugdopleiding en ondersteunt de jeugdtrainers. Contact: tvjo@sklochristi.be.",
-      "Nico Wieme is jeugdcoördinator bovenbouw (U13 tot U17), bereikbaar via bovenbouw@sklochristi.be. Gert-Jan Mores coördineert de middenbouw (U8 tot U12) via middenbouw@sklochristi.be. Tom De Sutter beheert de onderbouw (U6 tot U7) via onderbouw@sklochristi.be.",
-      "Wesley Quatacker is Assistent Technisch Verantwoordelijke Jeugdopleiding (AVJO). Hij ondersteunt de TVJO en behandelt PSD-gerelateerde vragen. Contact: avjo@sklochristi.be."
     ]
   },
   {
@@ -224,23 +256,53 @@ SKL.news = [
     ]
   },
   {
-    "slug": "ploegfotos-jeugd-staan-online",
-    "title": "De ploegfoto's van de jeugd staan online",
-    "date": "2025-11-24",
-    "author": "Jeugdwerking",
+    "slug": "sk-lochristi-behaalt-interprovinciaal-label",
+    "title": "SK Lochristi behaalt interprovinciaal label",
+    "date": "2025-01-19",
+    "author": "Peter Esprit",
     "category": "jeugd",
-    "image": "assets/img/club/groep-2.jpg",
-    "poster": false,
-    "example": true,
-    "excerpt": "Van U6 tot U21: alle jeugdploegen gingen op de foto. Bekijk ze hier.",
+    "image": "assets/img/news/IMG-20250119-WA0001-002.jpg",
+    "poster": true,
+    "excerpt": "Met veel trots kan SK Lochristi aankondigen dat de club vanaf het seizoen 2025-2026 het Interprovinciaal label mag voeren. Deze erkenning van Voetbal Vlaanderen is een mijlpaal in de ontwikkeling…",
     "body": [
-      "Van U6 tot U21: alle jeugdploegen van SK Lochristi gingen deze maand op de foto.",
-      "Bekijk hieronder een selectie."
+      "Met veel trots kan SK Lochristi aankondigen dat de club vanaf het seizoen 2025-2026 het Interprovinciaal label mag voeren. Deze erkenning van Voetbal Vlaanderen is een mijlpaal in de ontwikkeling van de club en een bekroning van het harde werk dat jarenlang is geleverd door onze jeugdtrainers, coördinatoren en de sportieve cel jeugd.",
+      "Dankzij dit label krijgt onze jeugdwerking een extra kwaliteitsimpuls. Het stelt onze jonge talenten in staat om te spelen in de sterkste jeugdcompetities, wat hun groei en ervaring alleen maar ten goede zal komen. Tegelijkertijd biedt deze stap ons de kans om onze staf verder uit te breiden met gediplomeerde trainers, zodat we onze opleidingen blijven verbeteren en onze spelers optimaal kunnen begeleiden.",
+      "De club is bijzonder trots op deze verwezenlijking, die een solide basis vormt voor de toekomst van onze club.",
+      "Een welgemeende dank aan iedereen die dit mogelijk heeft gemaakt. Jullie inzet, expertise en enthousiasme hebben SK Lochristi naar een hoger niveau gebracht. Samen bouwen we verder aan de toekomst."
+    ]
+  },
+  {
+    "slug": "tornooi-middenbouw-de-zonnige-sportieve-afsluiter-van-het-seizoen",
+    "title": "Tornooi middenbouw: de zonnige sportieve afsluiter van het seizoen",
+    "date": "2024-05-13",
+    "author": "Peter Esprit",
+    "category": "jeugd",
+    "image": "assets/img/news/DSC_3657-1-1024x576.jpg",
+    "poster": false,
+    "excerpt": "Het sportieve seizoen 2023-2024 zit er definitief op. Het tornooi voor de middenbouw, afgelopen weekend, was de afsluiter. Het aangename (zomer)weer zorgde voor een behoorlijke publieke belangstelling en sportief verliep…",
+    "body": [
+      "Het sportieve seizoen 2023-2024 zit er definitief op. Het tornooi voor de middenbouw, afgelopen weekend, was de afsluiter. Het aangename (zomer)weer zorgde voor een behoorlijke publieke belangstelling en sportief verliep alles van een leien dakje. Onze huisfotograaf zette de verschillende ploegen extra in de kijker met ruim 250 foto's, die op de facebookpagina van SK Lochristi te vinden zijn.",
+      "Er wordt dan wel niet meer gevoetbald, in de Bosdreef gaan er nog twee activiteiten door. Komende vrijdag 17 mei is er een algemene quiz, waarvoor men nog steeds kan inschrijven via jeugd@sklochristi.be.",
+      "Op zaterdag 25 mei is er tenslotte een darts-tornooi. De inschrijvingsmodaliteiten kan je op de flyer onderaan terugvinden."
     ],
     "gallery": [
-      "assets/img/club/groep-2.jpg",
-      "assets/img/club/DSC_1554.jpg",
-      "assets/img/club/DSC_1422.jpg"
+      "assets/img/news/AFFICHE-DARTS-SKLO-2024-709x1024.jpg"
+    ]
+  },
+  {
+    "slug": "lentetornooi-sluit-sportief-jeugdseizoen-af",
+    "title": "Lentetornooi sluit sportief jeugdseizoen af",
+    "date": "2023-05-12",
+    "author": "Peter Esprit",
+    "category": "jeugd",
+    "image": "assets/img/news/og_image-1024x576.png",
+    "poster": false,
+    "excerpt": "Het lentetornooi voor de middenbouw is de laatste sportieve activiteit van het seizoen 2022-2023. Op zaterdag 13 en zondag 14 mei kan men het jeugdelijk talent bewonderen in de Bosdreef.…",
+    "body": [
+      "Het lentetornooi voor de middenbouw is de laatste sportieve activiteit van het seizoen 2022-2023. Op zaterdag 13 en zondag 14 mei kan men het jeugdelijk talent bewonderen in de Bosdreef. .",
+      "Op zaterdag spelen de U10 en de U11 (met een afzonderlijke reeks voor gewestelijke en (inter)provinciale ploegen. Als extraatje spelen de gewestelijke en provinciale U15-ploegen elk een driehoekstornooi.",
+      "Op zondag zullen de U12 en U13 de grasmat in de Bosdreef betreden.",
+      "Het volledig wedstrijdschema is terug te vinden via Lente tornooi 2023 (prosoccerdata.com)"
     ]
   }
 ];

@@ -2,7 +2,8 @@
 /**
  * Zet de inhoud van de statische site in WordPress.
  *
- * Gebruik (WP-CLI):  wp eval-file wordpress/import/import.php
+ * Gebruik (WP-CLI):  wp eval-file wordpress/import/import.php          (alles)
+ *                    wp eval-file wordpress/import/import.php news     (enkel nieuwsberichten)
  * Vooraf:            python3 build_pages.py && python3 build_data.py
  *
  * Mag opnieuw gedraaid worden: bestaande items (zelfde slug) worden bijgewerkt,
@@ -187,6 +188,11 @@ foreach ( $data['news'] as $item ) {
 		set_post_thumbnail( $id, skl_media( $item['image'] ) );
 		skl_log( '  ' . $item['title'] );
 	}
+}
+
+if ( in_array( 'news', $args ?? array(), true ) ) {
+	skl_log( 'Klaar (enkel nieuws).' );
+	return;
 }
 
 /* ---------------------------------------------------------------- Evenementen, sponsors, ploegen */
